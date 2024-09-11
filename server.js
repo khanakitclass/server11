@@ -13,7 +13,7 @@ server.use('/public', express.static(path.join(__dirname, 'public')))
 server.use(express.urlencoded({ extended: true }));
 
 server.use(cors({
-  origin: 'http://localhost:3000',
+  origin: 'https://client11-chi.vercel.app',
   // origin: 'https://solar-frontend-pi.vercel.app',
   credentials: true
 }));
