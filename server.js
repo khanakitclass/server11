@@ -12,10 +12,17 @@ server.use(express.json());
 server.use('/public', express.static(path.join(__dirname, 'public')))
 server.use(express.urlencoded({ extended: true }));
 
+// server.use(cors({
+//   origin: 'https://client11-chi.vercel.app',
+//   // origin: 'https://solar-frontend-pi.vercel.app',
+//   credentials: true
+// }));
+
 server.use(cors({
-  origin: 'https://client11-chi.vercel.app',
-  // origin: 'https://solar-frontend-pi.vercel.app',
-  credentials: true
+  origin: ['https://client11-chi.vercel.app', 'http://localhost:3000'], // Allow multiple origins
+  credentials: true,
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
 connectDb();
